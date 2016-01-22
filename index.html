@@ -1,32 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Static Table</title>
-	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<title>Static Table</title>	
+   <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+   <link rel="stylesheet" type="text/css" href="css/style.css">
 	<script type="text/javascript" src="js/angular.min.js"></script>
 	<script type="text/javascript" src="js/jquery-2.2.0.min.js"></script>
+   <script type="text/javascript" src="js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="js/edit.js"></script>
 </head>
 <body>
-  <div align="center">
-   <h1>TOP EMPLOYEES</h1> 
-   <div ng-app="staticTableApp" ng-controller="empDataController">
-   	  <table>
-   	    <thead>
-   	    	<th>Employee ID</th>
-   	    	<th>Name</th>
-   	    	<th>Position</th>
-   	    	<th>Mobile Number</th>
-   	    </thead>
-   	  	<tr ng-repeat="employee in employees | orderBy : empId">
-   	  		<td>{{employee.empId}}</td>
-   	  		<td>{{employee.name}}</td>
-   	  		<td>{{employee.position}}</td>
-   	  		<td>{{employee.mobile}}</td>
-   	  	</tr>
-   	  </table>
-   </div>
-   <a href="views/employeeEdit.html">Click to Add and Edit Employees</a>
+  <div align="center">  
+       <div class="welcome">
+          <h1>Welcome...</h1> 
+          <a href="views/employeeEdit.html">Click to Add and Edit Employees</a>
+       </div>   
   </div>
 </body>
 </html>

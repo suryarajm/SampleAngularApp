@@ -1,3 +1,6 @@
+body {
+	background-color: #D7EAEF;
+}
 table, th , td  {
 	border: 1px solid grey;
 	border-collapse: collapse;
@@ -25,7 +28,24 @@ table tr:nth-child(even) {
 }
 #addEmployee{
 	margin-right: 20px;
+	background-color: #8EB3BD;
+    font-size: 16px;
+    padding: 5px;
 }
 #backToIndex{
 	margin-right: 50px;
+}
+.welcome{
+	margin-top: 20%;
+    color: red;
+    height: 150px;
+    width: 300px;
+    background-color: white;
+    padding: 40px;
+    vertical-align: middle;
+}
+.edit{
+	padding: 5px;
+    background-color: #BFC4C5;
+    width: 70px;
 }
