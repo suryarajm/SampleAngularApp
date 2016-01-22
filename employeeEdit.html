@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Static Table</title>
+  <title>Static Table</title>
   <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" type="text/css" href="style.css">
   <script type="text/javascript" src="jquery-2.2.0.min.js"></script>
   <script type="text/javascript" src="bootstrap.min.js"></script>
-	<script type="text/javascript" src="angular.min.js"></script>
+  <script type="text/javascript" src="angular.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular-cookies.js"></script>
   <script type="text/javascript" src="edit.js"></script>
 </head>
 <body>
@@ -16,23 +17,25 @@
      <button id="addEmployee">Add Employee</button>
    </div>
    <div ng-app="dynamicTableApp" ng-controller="empEditController">
-   	  <table>
-   	    <thead>
-   	    	<th>Employee ID</th>
-   	    	<th>Name</th>
-   	    	<th>Position</th>
-   	    	<th>Mobile Number</th>
-   	    </thead>
-   	  	<tr ng-repeat="employee in employees | orderBy : empId">
-   	  		<td>{{employee.empId}}</td>
-   	  		<td>{{employee.name}}</td>
-   	  		<td>{{employee.position}}</td>
-   	  		<td>{{employee.mobile}}</td>
-   	  	</tr>
-   	  </table>
+      <table>
+        <thead>
+          <th>Employee ID</th>
+          <th>Name</th>
+          <th>Position</th>
+          <th>Mobile Number</th>
+          <th>Edit</th>
+        </thead>
+        <tr ng-repeat="employee in employees | orderBy : empId">
+          <td>{{employee.empId}}</td>
+          <td>{{employee.name}}</td>
+          <td>{{employee.position}}</td>
+          <td>{{employee.mobile}}</td>
+          <td><button class="edit" ng-click="editEmployee(employee,$index)">Edit</button></td>
+        </tr>
+      </table>
   
    <div class="editdiv" align="center">
-   <form class="form-horizontal editform" role="form" ng-submit="addRow()">
+   <form class="form-horizontal editform" role="form">
   <div class="form-group">
     <label class="col-md-2 control-label">Employee Id</label>
     <div class="col-md-4">
@@ -62,11 +65,52 @@
     </div>
   </div>
   <div class="form-group">                
-    <div style="padding-left:110px">
-      <input type="submit" value="Submit" class="btn btn-primary" id="addsubmit"/>
+    <div>
+      <button class="cancel btn btn-primary" id="addCancel">Cancel</button>
+      <input type="submit" value="Submit" class="btn btn-primary" id="addsubmit"  ng-click="addRow()"/>
     </div>
   </div>
 </form>
+</div>
+
+<div class="rowEdit">
+  <form name="rowEditForm" class="form-horizontal" role="form" id="rowEditform">
+      <div class="form-group">
+    <label class="col-md-2 control-label">Employee Id</label>
+    <div class="col-md-4">
+      <input type="text" class="form-control" name="empId"
+        ng-model="empIdedit" />
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-md-2 control-label">Name</label>
+    <div class="col-md-4">
+      <input type="text" class="form-control" name="name"
+        ng-model="nameedit" />
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-md-2 control-label">Position</label>
+    <div class="col-md-4">
+      <input type="text" class="form-control" name="position"
+        ng-model="positionedit" />
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-md-2 control-label">Mobile Number</label>
+    <div class="col-md-4">
+      <input type="text" class="form-control" name="mobile"
+        ng-model="mobileedit" />
+    </div>
+  </div>
+  <div class="form-group">                
+    <div>
+      <button class="cancel btn btn-primary" id="editCancel">Cancel</button>
+      <input type="submit" value="Submit" class="btn btn-primary" id="editsubmit" ng-click="editRowSubmit()"/>
+    </div>
+  </div>
+  </form>
+
 </div>
  </div>
 </div>
