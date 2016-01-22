@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Static Table</title>
+  <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="style.css">
+  <script type="text/javascript" src="jquery-2.2.0.min.js"></script>
+  <script type="text/javascript" src="bootstrap.min.js"></script>
+	<script type="text/javascript" src="angular.min.js"></script>
+  <script type="text/javascript" src="edit.js"></script>
+</head>
+<body>
+  <div align="center">
+   <h1>TOP EMPLOYEES</h1> 
+   <div align="right">
+     <button id="addEmployee">Add Employee</button>
+   </div>
+   <div ng-app="dynamicTableApp" ng-controller="empEditController">
+   	  <table>
+   	    <thead>
+   	    	<th>Employee ID</th>
+   	    	<th>Name</th>
+   	    	<th>Position</th>
+   	    	<th>Mobile Number</th>
+   	    </thead>
+   	  	<tr ng-repeat="employee in employees | orderBy : empId">
+   	  		<td>{{employee.empId}}</td>
+   	  		<td>{{employee.name}}</td>
+   	  		<td>{{employee.position}}</td>
+   	  		<td>{{employee.mobile}}</td>
+   	  	</tr>
+   	  </table>
+  
+   <div class="editdiv" align="center">
+   <form class="form-horizontal editform" role="form" ng-submit="addRow()">
+  <div class="form-group">
+    <label class="col-md-2 control-label">Employee Id</label>
+    <div class="col-md-4">
+      <input type="text" class="form-control" name="empId"
+        ng-model="empId" />
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-md-2 control-label">Name</label>
+    <div class="col-md-4">
+      <input type="text" class="form-control" name="name"
+        ng-model="name" />
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-md-2 control-label">Position</label>
+    <div class="col-md-4">
+      <input type="text" class="form-control" name="position"
+        ng-model="position" />
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-md-2 control-label">Mobile Number</label>
+    <div class="col-md-4">
+      <input type="text" class="form-control" name="mobile"
+        ng-model="mobile" />
+    </div>
+  </div>
+  <div class="form-group">                
+    <div style="padding-left:110px">
+      <input type="submit" value="Submit" class="btn btn-primary" id="addsubmit"/>
+    </div>
+  </div>
+</form>
+</div>
+ </div>
+</div>
+</body>
+</html>
