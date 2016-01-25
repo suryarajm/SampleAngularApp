@@ -37,10 +37,10 @@
           $scope.addRow = function(){   
             if($scope.addForm.$valid){
               $scope.employees.push({ 'empId':$scope.empId, 'name': $scope.name, 'position':$scope.position, 'mobile':$scope.mobile});
-              $scope.empId='';
-              $scope.name='';
-              $scope.position='';
-              $scope.mobile='';
+              $scope.empId=' ';
+              $scope.name=' ';
+              $scope.position=' ';
+              $scope.mobile=' ';
               $(".editform").hide();
               $scope.addFormShow = "false";
               $scope.tableDivclass = "inCenter";

@@ -17,7 +17,7 @@
      
    </div>
    <div ng-app="dynamicTableApp" ng-controller="empEditController" onload="loadStyling()">
-   <button ng-class="addEmployeeclass" ng-click="addStyling()" id="addEmployee">Add Employee</button>
+   <button type="button" ng-class="addEmployeeclass" class="addEmployeeWithoutForm" ng-click="addStyling()" id="addEmployee">Add Employee</button>
     <div ng-class="tableDivclass">
       <table>
         <thead>
@@ -32,13 +32,13 @@
           <td>{{employee.name}}</td>
           <td>{{employee.position}}</td>
           <td>{{employee.mobile}}</td>
-          <td><button class="edit" ng-click="editEmployee(employee,$index)">Edit</button></td>
+          <td><button type="button" class="edit" ng-click="editEmployee(employee,$index)">Edit</button></td>
         </tr>
       </table>
     </div>
   
    <div class="editdiv" align="center" ng-show="addFormShow">
-   <form class="form-horizontal editform" role="form" name="addForm" ng-submit="addForm.$valid" novalidate>
+   <form class="form-horizontal editform" role="form" name="addForm" ng-submit="addRow()" novalidate>
   <div class="form-group">
     <label class="col-md-2 control-label">Employee Id</label>
     <div class="col-md-4">
@@ -89,16 +89,16 @@
   </div>
   <div class="form-group">                
     <div>
-      <button class="cancel btn btn-primary" id="addCancel" ng-click="addCancelling()">Cancel</button>
+      <button type="button" class="cancel btn btn-primary" id="addCancel" ng-click="addCancelling()">Cancel</button>
 
-      <input type="submit" value="Submit" class="btn btn-primary" id="addsubmit"  ng-click="addRow()" ng-disabled="addForm.empId.$dirty && addForm.empId.$invalid || addForm.name.$dirty && addForm.name.$invalid || addForm.position.$dirty && addForm.position.$invalid || addForm.mobile.$dirty && addForm.mobile.$invalid"/>
+      <input type="submit" value="Submit" class="btn btn-primary" id="addsubmit"  ng-disabled="addForm.empId.$dirty && addForm.empId.$invalid || addForm.name.$dirty && addForm.name.$invalid || addForm.position.$dirty && addForm.position.$invalid || addForm.mobile.$dirty && addForm.mobile.$invalid"/>
     </div>
   </div>
 </form>
 </div>
 
 <div class="rowEdit" ng-show="editFormShow">
-  <form name="rowEditForm" class="form-horizontal" role="form" id="rowEditform" ng-submit="addForm.$valid" novalidate>
+  <form name="rowEditForm" class="form-horizontal" role="form" id="rowEditform" ng-submit="editRowSubmit()" novalidate>
       <div class="form-group">
     <label class="col-md-2 control-label">Employee Id</label>
     <div class="col-md-4">
@@ -155,8 +155,8 @@
   </div>
   <div class="form-group">                
     <div>
-      <button class="cancel btn btn-primary" id="editCancel" ng-click="editCancelling()">Cancel</button>
-      <input type="submit" value="Submit" class="btn btn-primary" id="editsubmit" ng-click="editRowSubmit()" ng-disabled="rowEditForm.empId.$dirty && rowEditForm.empId.$invalid || rowEditForm.name.$dirty && rowEditForm.name.$invalid || rowEditForm.position.$dirty && rowEditForm.position.$invalid || rowEditForm.mobile.$dirty && rowEditForm.mobile.$invalid"/>
+      <button type="button" class="cancel btn btn-primary" id="editCancel" ng-click="editCancelling()">Cancel</button>
+      <input type="submit" value="Submit" class="btn btn-primary" id="editsubmit" ng-disabled="rowEditForm.empId.$dirty && rowEditForm.empId.$invalid || rowEditForm.name.$dirty && rowEditForm.name.$invalid || rowEditForm.position.$dirty && rowEditForm.position.$invalid || rowEditForm.mobile.$dirty && rowEditForm.mobile.$invalid"/>
     </div>
   </div>
   </form>
