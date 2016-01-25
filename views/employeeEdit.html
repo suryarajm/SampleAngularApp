@@ -2,20 +2,23 @@
 <html>
 <head>
   <title>Static Table</title>
-  <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="../css/libs/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="../css/style.css">
-  <script type="text/javascript" src="../js/jquery-2.2.0.min.js"></script>
-  <script type="text/javascript" src="../js/bootstrap.min.js"></script>
-  <script type="text/javascript" src="../js/angular.min.js"></script>
-  <script type="text/javascript" src="../js/edit.js"></script>
+  <script type="text/javascript" src="../js/libs/jquery-2.2.0.min.js"></script>
+  <script type="text/javascript" src="../js/libs/bootstrap.min.js"></script>
+  <script type="text/javascript" src="../js/libs/angular.min.js"></script>
+  <script type="text/javascript" src="../js/Controllers/appController.js"></script>
 </head>
 <body>
+<header>AngularJS Application</header>
   <div align="center" style="padding-top:50px;">
    <h1>TOP EMPLOYEES</h1> 
    <div align="right">
-     <button id="addEmployee">Add Employee</button>
+     
    </div>
-   <div ng-app="dynamicTableApp" ng-controller="empEditController">
+   <div ng-app="dynamicTableApp" ng-controller="empEditController" onload="loadStyling()">
+   <button ng-class="addEmployeeclass" ng-click="addStyling()" id="addEmployee">Add Employee</button>
+    <div ng-class="tableDivclass">
       <table>
         <thead>
           <th>Employee ID</th>
@@ -32,80 +35,128 @@
           <td><button class="edit" ng-click="editEmployee(employee,$index)">Edit</button></td>
         </tr>
       </table>
+    </div>
   
-   <div class="editdiv" align="center">
-   <form class="form-horizontal editform" role="form">
+   <div class="editdiv" align="center" ng-show="addFormShow">
+   <form class="form-horizontal editform" role="form" name="addForm" ng-submit="addForm.$valid" novalidate>
   <div class="form-group">
     <label class="col-md-2 control-label">Employee Id</label>
     <div class="col-md-4">
       <input type="text" class="form-control" name="empId"
-        ng-model="empId" />
+        ng-model="empId" required/>
+
+                <span style="color:red" ng-show="addForm.empId.$dirty && addForm.empId.$invalid">
+                <span ng-show="addForm.empId.$error.required">Employee Id is required.</span>
+                </span>
     </div>
   </div>
   <div class="form-group">
     <label class="col-md-2 control-label">Name</label>
     <div class="col-md-4">
       <input type="text" class="form-control" name="name"
-        ng-model="name" />
+        ng-model="name" required/>
+
+                <span style="color:red" ng-show="addForm.name.$dirty && addForm.name.$invalid">
+                <span ng-show="addForm.name.$error.required">Name is required.</span>
+                </span>
+
     </div>
   </div>
   <div class="form-group">
     <label class="col-md-2 control-label">Position</label>
     <div class="col-md-4">
       <input type="text" class="form-control" name="position"
-        ng-model="position" />
+        ng-model="position" required/>
+
+                <span style="color:red" ng-show="addForm.position.$dirty && addForm.position.$invalid">
+                <span ng-show="addForm.position.$error.required">Position is required.</span>
+                </span>
+
     </div>
   </div>
   <div class="form-group">
     <label class="col-md-2 control-label">Mobile Number</label>
     <div class="col-md-4">
       <input type="text" class="form-control" name="mobile"
-        ng-model="mobile" />
+        ng-model="mobile" required/>
+
+        <span style="color:red" ng-show="addForm.mobile.$dirty && addForm.mobile.$invalid">
+                <span ng-show="addForm.mobile.$error.required">Mobile No. is required.</span>
+                </span>
+     
+
     </div>
   </div>
   <div class="form-group">                
     <div>
-      <button class="cancel btn btn-primary" id="addCancel">Cancel</button>
-      <input type="submit" value="Submit" class="btn btn-primary" id="addsubmit"  ng-click="addRow()"/>
+      <button class="cancel btn btn-primary" id="addCancel" ng-click="addCancelling()">Cancel</button>
+
+      <input type="submit" value="Submit" class="btn btn-primary" id="addsubmit"  ng-click="addRow()" ng-disabled="addForm.empId.$dirty && addForm.empId.$invalid || addForm.name.$dirty && addForm.name.$invalid || addForm.position.$dirty && addForm.position.$invalid || addForm.mobile.$dirty && addForm.mobile.$invalid"/>
     </div>
   </div>
 </form>
 </div>
 
-<div class="rowEdit">
-  <form name="rowEditForm" class="form-horizontal" role="form" id="rowEditform">
+<div class="rowEdit" ng-show="editFormShow">
+  <form name="rowEditForm" class="form-horizontal" role="form" id="rowEditform" ng-submit="addForm.$valid" novalidate>
       <div class="form-group">
     <label class="col-md-2 control-label">Employee Id</label>
     <div class="col-md-4">
       <input type="text" class="form-control" name="empId"
-        ng-model="empIdedit" />
+        ng-model="empIdedit" required/>
+
+         <span style="color:red" ng-show="rowEditForm.empId.$dirty && rowEditForm.empId.$invalid">
+                <span ng-show="rowEditForm.empId.$error.required">Employee Id is required.</span>
+                </span>
+
+
     </div>
   </div>
   <div class="form-group">
     <label class="col-md-2 control-label">Name</label>
     <div class="col-md-4">
       <input type="text" class="form-control" name="name"
-        ng-model="nameedit" />
+        ng-model="nameedit" required/>
+
+        <span style="color:red" ng-show="rowEditForm.name.$dirty && rowEditForm.name.$invalid">
+                <span ng-show="rowEditForm.name.$error.required">Name is required.</span>
+                </span>
+
+
     </div>
   </div>
   <div class="form-group">
     <label class="col-md-2 control-label">Position</label>
     <div class="col-md-4">
       <input type="text" class="form-control" name="position"
-        ng-model="positionedit" />
+        ng-model="positionedit" required/>
+
+
+          <span style="color:red" ng-show="rowEditForm.position.$dirty && rowEditForm.position.$invalid">
+                <span ng-show="rowEditForm.position.$error.required">Position is required.</span>
+                </span>
+
+
     </div>
   </div>
   <div class="form-group">
     <label class="col-md-2 control-label">Mobile Number</label>
     <div class="col-md-4">
       <input type="text" class="form-control" name="mobile"
-        ng-model="mobileedit" />
+        ng-model="mobileedit" required/>
+
+
+          <span style="color:red" ng-show="rowEditForm.mobile.$dirty && rowEditForm.mobile.$invalid">
+                <span ng-show="rowEditForm.mobile.$error.required">Mobile No. is required.</span>
+                </span>
+
+
     </div>
   </div>
   <div class="form-group">                
     <div>
-      <button class="cancel btn btn-primary" id="editCancel">Cancel</button>
-      <input type="submit" value="Submit" class="btn btn-primary" id="editsubmit" ng-click="editRowSubmit()"/>
+      <button class="cancel btn btn-primary" id="editCancel" ng-click="editCancelling()">Cancel</button>
+      <input type="submit" value="Submit" class="btn btn-primary" id="editsubmit" ng-click="editRowSubmit()" ng-disabled="rowEditForm.empId.$dirty && rowEditForm.empId.$invalid || rowEditForm.name.$dirty && rowEditForm.name.$invalid || rowEditForm.position.$dirty && rowEditForm.position.$invalid || rowEditForm.mobile.$dirty && rowEditForm.mobile.$invalid"/>
     </div>
   </div>
   </form>
@@ -113,5 +164,6 @@
 </div>
  </div>
 </div>
+ <footer>@Qburst_On_25-01-2016</footer>
 </body>
 </html>

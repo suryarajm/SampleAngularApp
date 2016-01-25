@@ -12,10 +12,10 @@ table tr:nth-child(odd)	{
 table tr:nth-child(even) {
 	background-color: #ffffff;
 }
-.editdiv{
-	width:100%;
-	height: auto;
-	margin-top: 40px;
+.editdiv,.rowEdit{
+	width: 40%;
+    height: auto;
+    float: left;
 }
 #addsubmit,#editsubmit{
 	margin-right: 22%;
@@ -27,16 +27,30 @@ table tr:nth-child(even) {
     padding: 6px 12px;
 }
 #addEmployee{
-	margin-right: 20px;
 	background-color: #8EB3BD;
     font-size: 16px;
     padding: 5px;
+    margin-bottom: 10px;
+}
+.addEmployeeWithoutForm{
+	background-color: #8EB3BD;
+    font-size: 16px;
+    padding: 5px;
+    margin-left: 23%;
+    margin-bottom: 10px;
+}
+.addEmployeeWithForm{
+	background-color: #8EB3BD;
+    font-size: 16px;
+    padding: 5px;
+    margin-left: 0px;
+    margin-bottom: 10px;
 }
 #backToIndex{
 	margin-right: 50px;
 }
 .welcome{
-	margin-top: 20%;
+	margin-top: 18%;
     color: red;
     height: 150px;
     width: 300px;
@@ -49,3 +63,35 @@ table tr:nth-child(even) {
     background-color: #BFC4C5;
     width: 70px;
 }
+
+header{
+	height: 90px;
+    background-color: #44AEBF;
+    font-size: 28px;
+    color: white;
+    padding: 20px 0 20px 29px;
+    width: 100%;
+
+}
+ footer{
+ 	height: 50px;
+ 	width: 100%;
+    background-color: #5D6365;
+    font-size: 14px;
+    color: white;
+    bottom: 0 !important;
+    position: fixed;
+    padding: 20px 0 20px 20px;
+ }
+ .inLeft{
+ 	width: 40%;
+    height: auto;
+    float: left;
+    margin-left: 20%;
+ }
+ .inCenter{
+ 	width: auto;
+ 	height: auto;
+ }
+
+
