@@ -16,6 +16,8 @@ table tr:nth-child(even) {
 	width: 40%;
     height: auto;
     float: left;
+    margin-right: 5%;
+    margin-left: 3%;
 }
 #addsubmit,#editsubmit{
 	margin-right: 22%;
@@ -33,6 +35,10 @@ table tr:nth-child(even) {
     padding: 5px;
     margin-left: 23%;
     margin-bottom: 10px;
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
 }
 .addEmployeeWithForm{
 	background-color: #8EB3BD;
@@ -40,6 +46,10 @@ table tr:nth-child(even) {
     padding: 5px;
     margin-left: 0px;
     margin-bottom: 10px;
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+     transition: all 0.5s ease-in-out;
 }
 #backToIndex{
 	margin-right: 50px;
@@ -66,6 +76,9 @@ header{
     color: white;
     padding: 20px 0 20px 29px;
     width: 100%;
+    top: 0 !important;
+    position: fixed;
+    z-index: 999;
 
 }
  footer{
@@ -77,23 +90,41 @@ header{
     bottom: 0 !important;
     position: fixed;
     padding: 20px 0 20px 20px;
+    z-index: 999;
  }
  .inLeft{
  	width: 40%;
     height: auto;
     float: left;
-    margin-left: 20%;
+    margin-left: 12%;
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
  }
  .inCenter{
  	width: auto;
  	height: auto;
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
  }
 .appContainer{
     margin-top: 50px;
+
 }
 .responseTimediv{
     width: auto;
     height: auto;
     margin-top: 20px;
+}
+.outerContainer{
+    padding-top: 100px;
+    margin-top: 50px;
+    margin-bottom: 100px;
+    min-height: 547px !important;
+    z-index: 99;
+    min-width: 1500px;
 }
 
