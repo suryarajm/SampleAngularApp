@@ -1,8 +1,36 @@
 /**-------------Controller for edit page-----------------**/
   var empDynamicApp = angular.module('dynamicTableApp',[]);
-       empDynamicApp.controller('empEditController',function($scope,$http){
-          $http.get('../json/employee.json').success(function(result){
-             $scope.employees =  result.Employees;                
+
+//$httpprovider Example
+empDynamicApp.factory('timestampMarker', [function() {
+        var timestampMarker = {
+            request: function(config) {
+                config.requestTimestamp = new Date().getTime();
+                return config;
+            },
+            response: function(response) {
+                response.config.responseTimestamp = new Date().getTime();
+                return response;
+            }
+        };
+        return timestampMarker;
+    }]);
+
+    empDynamicApp.config(['$httpProvider', function($httpProvider) {
+        $httpProvider.interceptors.push('timestampMarker'); 
+    }]);
+
+
+
+       empDynamicApp.controller('empEditController', ['$scope', '$http', function($scope,$http){
+
+          $scope.requestTime = '0.3';
+
+          $http.get('../json/employee.json').success(function(response){
+             $scope.employees =  response.Employees;  
+
+              var time = response.config.responseTimestamp - response.config.requestTimestamp;
+               $scope.requestTime = (time / 1000);              
           });          
           
           $scope.loadStyling = function(){
@@ -78,4 +106,4 @@
              	     }
                 }
          };
-});
+}]);
