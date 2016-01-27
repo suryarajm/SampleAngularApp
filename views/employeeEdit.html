@@ -13,10 +13,8 @@
 <header>AngularJS Application</header>
   <div align="center" style="padding-top:50px;">
    <h1>TOP EMPLOYEES</h1> 
-   <div align="right">
-     
-   </div>
-   <div ng-app="dynamicTableApp" ng-controller="empEditController" onload="loadStyling()">
+   
+   <div ng-app="dynamicTableApp" ng-controller="empEditController" onload="loadStyling()" class="appContainer">
    <button type="button" ng-class="addEmployeeclass" class="addEmployeeWithoutForm" ng-click="addStyling()" id="addEmployee">Add Employee</button>
     <div ng-class="tableDivclass">
       <table>
@@ -36,7 +34,7 @@
         </tr>
       </table>
 
-      The request took <span ng-bind="requestTime"></span> seconds.
+      <div class="responseTimediv">The request took <span ng-bind="requestTime"></span> seconds.</div>
     </div>
   
    <div class="editdiv" align="center" ng-show="addFormShow">

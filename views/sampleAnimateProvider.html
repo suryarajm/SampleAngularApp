@@ -1,0 +1,27 @@
+<!DOCTYPE <!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.12/angular.min.js"></script>
+	<script type="text/javascript">
+       angular.module('Application', ['ngAnimate'])
+  .config(function($animateProvider) {
+    $animateProvider.classNameFilter(/ng-animate-enabled/);
+  });
+	</script>
+	<style type="text/css">
+         .btn {
+			  color: #ccc;
+			  transition: color .3s ease-out;
+			}
+
+			.btn:hover {
+			  color: #000;
+			}
+	</style>
+</head>
+<body ng-app="animateApp">
+   <a href="/logout" class="btn ng-animate-disabled" ng-show="isMember">Logout</a>
+   <a href="/login" class="btn ng-animate-disabled" ng-hide="isMember">Login</a>
+</body>
+</html>

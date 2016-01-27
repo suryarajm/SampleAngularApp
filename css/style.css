@@ -88,5 +88,12 @@ header{
  	width: auto;
  	height: auto;
  }
-
+.appContainer{
+    margin-top: 50px;
+}
+.responseTimediv{
+    width: auto;
+    height: auto;
+    margin-top: 20px;
+}
 
