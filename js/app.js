@@ -3,3 +3,10 @@
 
  /**$anchorScrollProvider**/
  var anchorapp = angular.module("anchorapp", []);
+
+
+  /**$animateProvider**/
+  var animateapp = angular.module("animateApp", ['ngAnimate']);
+
+
+  

@@ -16,3 +16,9 @@ empDynamicApp.config(['$httpProvider','$routeProvider',function($httpProvider,$r
 anchorapp.config(function ($anchorScrollProvider) {
     $anchorScrollProvider.disableAutoScrolling();
 });
+
+
+/**$animateProvider**/
+ animateapp.config(function($animateProvider) {
+    $animateProvider.classNameFilter(/ng-animate-enabled/);
+  });
