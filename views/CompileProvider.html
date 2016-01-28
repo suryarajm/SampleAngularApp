@@ -1,0 +1,24 @@
+<!DOCTYPE <!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="../css/libs/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.3/angular.min.js"></script>
+	
+    <script type="text/javascript" src="../js/app.js"></script>
+	<script type="text/javascript" src="../js/Controllers/compileProviderCtrl.js"></script>
+</head>
+<body>
+    <header>AngularJS Application</header>
+        <div ng-app="compile" align="center">
+          <div ng-controller="Ctrl" class="compileContainer">
+            <input ng-model="name" class="compileInput"> <br>
+            <textarea ng-model="html" class="compileInput"></textarea> <br>
+            <div compile="html"></div>
+          </div>
+        </div>
+    	
+    <footer>Surya@Qburst_On_20-01-2016</footer>
+</body>
+</html>

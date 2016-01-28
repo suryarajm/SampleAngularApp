@@ -162,3 +162,14 @@ aside{
 a{
     cursor: pointer;
 }
+.compileContainer{
+    width: 400px;
+    margin-top: 250px;
+    padding: 30px;
+    background-color: white;
+}
+.compileInput{
+    margin-bottom: 20px;
+    padding: 10px;
+    width: 194px;
+}
