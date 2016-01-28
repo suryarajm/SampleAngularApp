@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
 <head>
   <title>Static Table</title>
@@ -10,11 +10,11 @@
   <script type="text/javascript" src="../js/Controllers/appController.js"></script>
 </head>
 <body>
-<header>AngularJS Application</header>
+<header>AngularJS Application</header>  ng-app="dynamicTableApp"  -->
   <div align="center" class="outerContainer">
    <h1>TOP EMPLOYEES</h1> 
    
-   <div ng-app="dynamicTableApp" ng-controller="empEditController" onload="loadStyling()" class="appContainer">
+   <div onload="loadStyling()" class="appContainer" ng-controller="empEditController">
    <button type="button" ng-class="addEmployeeclass" class="addEmployeeWithoutForm" ng-click="addStyling()" id="addEmployee">Add Employee</button>
     <div ng-class="tableDivclass">
       <table>
@@ -164,6 +164,6 @@
 </div>
  </div>
 </div>
- <footer>@Qburst_On_25-01-2016</footer>
+ <!-- <footer>@Qburst_On_25-01-2016</footer>
 </body>
-</html>
+</html> -->

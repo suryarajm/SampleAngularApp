@@ -127,4 +127,26 @@ header{
     z-index: 99;
     min-width: 1000px;
 }
-
+aside{
+    height: 100%;
+    width: 18%;
+    background-color: #80B5C1;
+    color: black;
+    display: block;
+    font-size: 18px;
+    padding: 200px 50px;
+    float: left;
+    min-height: 710px;
+}
+.sidebarMenu{
+    float: left;
+    height: 50px;
+    width: 100%;
+    cursor: pointer;
+}
+.contentArea{
+    width: 82%;
+    float: left;
+    height: 100%;
+    min-height: 710px;
+}

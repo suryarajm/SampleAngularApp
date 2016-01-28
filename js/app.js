@@ -1,0 +1,1 @@
+ var empDynamicApp = angular.module('myapp',['ngRoute']);
