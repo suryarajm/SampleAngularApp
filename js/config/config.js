@@ -1,3 +1,4 @@
+/**$$httpProvider and $routeProvider**/
 empDynamicApp.config(['$httpProvider','$routeProvider',function($httpProvider,$routeProvider){
        $httpProvider.interceptors.push('timestampMarker');
        $routeProvider.when('/Dashboard',{
@@ -10,3 +11,8 @@ empDynamicApp.config(['$httpProvider','$routeProvider',function($httpProvider,$r
              redirectTo: '/'
          });
 }]);
+
+/**$anchorScrollProvider**/
+anchorapp.config(function ($anchorScrollProvider) {
+    $anchorScrollProvider.disableAutoScrolling();
+});
