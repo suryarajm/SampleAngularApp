@@ -1,14 +1,17 @@
 
        empDynamicApp.controller('empEditController', ['$scope', '$http', function($scope,$http){
 
-          $scope.requestTime = '0.3';
+          $scope.requestTime = 'waiting';
 
-          $http.get('json/employee.json').success(function(response){
-             $scope.employees =  response.Employees;  
+          $http.get('json/employee.json').then(function(response){
+              
 
               var time = response.config.responseTimestamp - response.config.requestTimestamp;
                $scope.requestTime = (time / 1000);              
-          });          
+          });
+          $http.get('json/employee.json').success(function(response) {
+              $scope.employees =  response.Employees; 
+           });          
           
           $scope.loadStyling = function(){
             $scope.tableDivclass = "inCenter";

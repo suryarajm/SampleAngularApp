@@ -7,8 +7,12 @@ empDynamicApp.factory('timestampMarker', [function() {
             },
             response: function(response) {
                 response.config.responseTimestamp = new Date().getTime();
+               response.Employees = response.Employees;
                 return response;
             }
         };
         return timestampMarker;
     }]);
+
+
+
