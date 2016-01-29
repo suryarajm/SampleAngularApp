@@ -64,13 +64,16 @@ table tr:nth-child(even) {
     vertical-align: middle;
 }
 .trainingDemos{
-    margin-top: 20px;
+    margin-top: 15%;
     color: black;
     height: auto;
     width: 300px;
     background-color: #d9edf7;
     padding: 40px;
     vertical-align: middle;
+    float: left;
+    margin-left: 5%;
+    text-align: left;
 }
 .edit{
 	padding: 5px;
