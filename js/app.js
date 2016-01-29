@@ -40,3 +40,9 @@ angular.module('compile', [], function($compileProvider) {
 });
 
 
+
+/**Provider Creation APP**/
+
+var providerapp = angular.module('providerapp', []);
+
+

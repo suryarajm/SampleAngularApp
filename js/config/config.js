@@ -1,6 +1,7 @@
 /**$$httpProvider and $routeProvider**/
 empDynamicApp.config(['$httpProvider','$routeProvider',function($httpProvider,$routeProvider){
        $httpProvider.interceptors.push('timestampMarker');
+       
        $routeProvider.when('/Dashboard',{
             templateUrl: 'views/dashboard.html'
         }).when('/EmployeeManagement',{
@@ -22,3 +23,11 @@ anchorapp.config(function ($anchorScrollProvider) {
  animateapp.config(function($animateProvider) {
     $animateProvider.classNameFilter(/ng-animate-enabled/);
   });
+
+
+
+ /**Provider Creation**/
+ //we can configure a provider!            
+providerapp.config(function(helloWorldProvider){
+    helloWorldProvider.setName('World');
+});
