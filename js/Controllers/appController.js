@@ -86,4 +86,60 @@
              	     }
                 }
          };
+
+
+       
+
+
+
+
+       //For google map
+       /*  $http.get('json/branchDetails.json').success(function(response){
+              var branches = response.branches;
+         });
+
+
+          var mapOptions = {
+                  zoom: 4,
+                  center: new google.maps.LatLng(8.5031,76.96),
+                  mapTypeId: google.maps.MapTypeId.TERRAIN
+              }
+
+        
+              $scope.map = new google.maps.Map(document.getElementById('map'), mapOptions);
+
+              $scope.markers = [];
+              
+              var infoWindow = new google.maps.InfoWindow();
+              
+              var createMarker = function (info){
+                  
+                  var marker = new google.maps.Marker({
+                      map: $scope.map,
+                      position: new google.maps.LatLng(info.lat, info.long),
+                      title: info.city
+                  });
+                  marker.content = '<div class="infoWindowContent">' + info.employeeCount + '</div>';
+                  
+                  google.maps.event.addListener(marker, 'click', function(){
+                      infoWindow.setContent('<h2>' + marker.title + '</h2>' + marker.content);
+                      infoWindow.open($scope.map, marker);
+                  });
+                  
+                  $scope.markers.push(marker);
+                  
+              }  
+              
+              for (i = 0; i < branches.length; i++){
+                  createMarker(branches[i]);
+              }
+
+              $scope.openInfoWindow = function(e, selectedMarker){
+                  e.preventDefault();
+                  google.maps.event.trigger(selectedMarker, 'click');
+              }
+  */
+
+
+       
 }]);

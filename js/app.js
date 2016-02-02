@@ -46,3 +46,6 @@ angular.module('compile', [], function($compileProvider) {
 var providerapp = angular.module('providerapp', []);
 
 
+/**Google Map Creation APP**/
+ var googleMapApp = angular.module('mapsApp', []);
+

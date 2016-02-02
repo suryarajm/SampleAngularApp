@@ -1,0 +1,66 @@
+
+<html>
+<head>
+<meta content="en-us" http-equiv="Content-Language" />
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<title>Items</title>
+<script type="text/javascript" src="../js/libs/jquery-2.2.0.min.js"></script>
+<style type="text/css">
+
+h1 {
+	color: #265482;
+}
+</style>
+</head>
+
+<body>
+    <h1>Getting the Exact Position of an Element</h1>
+    <div id="container" align="center" >
+    	
+    	<button id="imageLocation">My Position</button>
+    </div>
+    <script type="text/javascript">
+
+
+    this.addEventListener("load", doSomething, true);
+     
+    //Here find element's location co-ordinates, screen width-height and it's percentage
+    function doSomething(e) {
+        var myElement = document.querySelector("#imageLocation");     
+        var position = getPosition(myElement);
+        var screenWidth = $(document).width(); 
+        var screenHeight = $(document).height();
+        var widthPercentage = (position.x/screenWidth)*100;
+        var heightPercentage = (position.y/screenHeight)*100;        
+        coloring(widthPercentage,heightPercentage,screenWidth,screenHeight);
+    }
+
+
+    //method to get location co-ordinates of an element
+    function getPosition(element) {
+        var xPosition = 0;
+        var yPosition = 0;
+        
+        while(element) {
+            xPosition += (element.offsetLeft - element.scrollLeft + element.clientLeft);
+            yPosition += (element.offsetTop - element.scrollTop + element.clientTop);
+            element = element.offsetParent;
+        }
+        return { x: xPosition, y: yPosition };
+    }
+
+    //method to color an element in a particular position
+    function coloring(widthPercentage,heightPercentage,screenWidth,screenHeight){
+       var newXvalue = (widthPercentage * screenWidth)/100; 
+       var newYvalue = (heightPercentage * screenHeight)/100; 
+       var colorElement = document.elementFromPoint(newXvalue, newYvalue);
+       colorElement.style.color = "red";
+    }
+
+    </script>
+
+
+
+</body>
+
+</html>

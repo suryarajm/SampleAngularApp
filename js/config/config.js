@@ -6,6 +6,8 @@ empDynamicApp.config(['$httpProvider','$routeProvider',function($httpProvider,$r
             templateUrl: 'views/dashboard.html'
         }).when('/EmployeeManagement',{
           templateUrl: 'views/employeeEdit.html'
+        }).when('/googleMap',{
+          templateUrl: 'views/googleMap.html'
         }).when('/',{
             templateUrl: 'views/home.html'
         }).otherwise({

@@ -12,6 +12,10 @@ table tr:nth-child(odd)	{
 table tr:nth-child(even) {
 	background-color: #ffffff;
 }
+
+a:hover {
+    text-decoration: none;
+  }
 .editdiv,.rowEdit{
 	width: 40%;
     height: auto;
@@ -64,7 +68,7 @@ table tr:nth-child(even) {
     vertical-align: middle;
 }
 .trainingDemos{
-    margin-top: 15%;
+    margin-top: 5%;
     color: black;
     height: auto;
     width: 300px;
@@ -176,3 +180,53 @@ a{
     padding: 10px;
     width: 194px;
 }
+.dashBoardBtn{
+    margin-top: 13%;
+    margin-right: 12.5%;
+}
+.statusBtn{
+    background-color: #5F9EBB;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border-color: #5F9EBB;
+}
+
+
+/**Google Map**/
+#map{
+    height:500px; 
+    width:500px; 
+    box-shadow: 3px 3px 10px gray;
+    /*margin-top: 15%;*/
+    margin: 12% auto 1% auto;
+    display:box;       /* Display like a div      */
+    box-pack:center;   /* Pack contents to center */
+    box-align:center;  /* Align box in center     */
+    }
+#repeat{ 
+     display: inline;
+     }
+#country_container { 
+     width: 1000px; 
+     margin: 13px 3px 3px 0px; 
+     text-align: center; 
+     width: 85px; 
+     padding: 4px; 
+     display: inline-table;  
+     color: white; 
+     background-color: black; 
+     font-size: 12px; 
+     cursor: pointer;
+     border: 1px solid black; 
+     border-radius:13px; 
+     }
+#country_container:hover { 
+     box-shadow: 0px 0px 10px black;
+     background-color: gray; 
+     border: 1px solid gray; 
+     cursor: pointer; 
+     }
+#names { 
+     cursor: pointer; 
+       }
