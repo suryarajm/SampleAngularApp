@@ -1,0 +1,92 @@
+
+<html>
+<head>
+<meta content="en-us" http-equiv="Content-Language" />
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<title>Items</title>
+<script type="text/javascript" src="../js/libs/jquery-2.2.0.min.js"></script>
+<script type="text/javascript" src="../js/libs/jquery.cookie.js"></script>
+<script type="text/javascript" src="../js/coordinatePercentageConversion.js"></script>
+<style type="text/css">
+body {
+    padding-top: 50px;
+    text-align: center;
+}
+#container,#paras{
+    width: 100%;
+    height: auto;
+    float: left;
+}
+#paras{
+    margin-top: 20px;    
+}
+h1 {
+    color: #265482;
+}
+.parts{
+    width: 14%;
+    margin: 10px 1.3%;
+    color: white;
+    background-color: black;
+    float: left;
+    height: 30px;
+}
+</style>
+</head>
+
+<body>
+    <h1>Getting the Exact Position of an Element</h1>
+   
+
+    <div id="paras">
+        <div class="parts" id="p1">part 1</div><div class="parts" id="p2">part 2</div><div class="parts" id="p3">part 3</div><div class="parts" id="p4">part 4</div><div class="parts" id="p5">part 5</div><div class="parts" id="p6">part 6</div>
+        <div class="parts" id="p7">part 7</div><div class="parts" id="p8">part 8</div><div class="parts" id="p9">part 9</div><div class="parts" id="p10">part 10</div><div class="parts" id="p11">part 11</div><div class="parts" id="p12">part 12</div>
+        <div class="parts" id="p13">part 13</div><div class="parts" id="p14">part 14</div><div class="parts" id="p15">part 15</div><div class="parts" id="p16">part 16</div><div class="parts" id="p17">part 17</div><div class="parts" id="p18">part 18</div>
+
+    </div>
+    <script type="text/javascript">
+
+       this.addEventListener("load", loadingColoring, true);
+
+
+      function loadingColoring(e) {
+           if($.cookie("widthPercentage") != "" && $.cookie("widthPercentage") != null && $.cookie("widthPercentage") != undefined 
+            && $.cookie("widthPercentage") != "null" && $.cookie("widthPercentage") != "undefined" 
+            && $.cookie("heightPercentage") != "" && $.cookie("heightPercentage") != null && $.cookie("heightPercentage") != undefined 
+            && $.cookie("heightPercentage") != "null" && $.cookie("heightPercentage") != "undefined"){
+
+                  var oldwidthPercentage = $.cookie("widthPercentage");
+                  var oldheightPercentage = $.cookie("heightPercentage");
+
+ alert("oldwidthPercentage: "+oldwidthPercentage+",oldheightPercentage: "+oldheightPercentage);
+
+                  var coordinates = percentageToCoordinate(oldwidthPercentage,oldheightPercentage);
+
+                  alert("xCoordinate: "+coordinates.xCoordinate+",yCoordinate:"+coordinates.yCoordinate+"element: "+coordinates.element);
+                  
+                   
+            
+           }
+        }
+    
+
+
+        $(".parts").on('click',function(){
+              var percentage = coordinateToPercentage(this);
+              alert("widthPercentage: "+percentage.widthPercentage+",heightPercentage: "+percentage.heightPercentage);
+            $.cookie("widthPercentage",percentage.widthPercentage);
+            $.cookie("heightPercentage",percentage.heightPercentage);
+        });
+        
+      
+
+
+   
+
+    </script>
+
+
+
+</body>
+
+</html>

@@ -152,7 +152,7 @@ aside{
     font-size: 18px;
     padding: 200px 50px;
     float: left;
-    min-height: 850px;
+    min-height: 710px;
 }
 .sidebarMenu{
     float: left;

@@ -33,7 +33,7 @@
 
           //Angular App Module and Controller
           /*var branches = ""; */
-
+/*
          var branches = [
   {"city":"Vazhuthacaud - Trivandrum","address":"4th Floor, Artech Magnet, Vazhuthacaud,Trivandrum - 695014",
    "employeeCount":"160","lat":"8.5031","long":"76.96"},
@@ -55,16 +55,16 @@
    "employeeCount":"150","lat":"-33.8169308","long":"151.0009176"},
   {"city":"Temasek Boulevard","address":"8 Temasek Boulevard,#42-01, Suntec Tower Three, Singapore 038988",
    "employeeCount":"100","lat":"1.2952","long":"103.8595"}
-  ];
- /* var branches = "";
+  ];*/
+  /*var branches = "";
   var my_url = "../json/branchDetails.json";
 $.getJSON(my_url, function(json) {
   branches = branches+JSON.stringify(json);
   console.log("branches: "+branches);
   // here you have the value
 });*/
-   // console.log("branches3: "+branches);    
-          googleMapApp.controller('MapCtrl', function ($scope) {
+  //  console.log("branches3: "+branches);    
+          googleMapApp.controller('MapCtrl',['$scope','$http', function ($scope,$http) {
 
               var mapOptions = {
                   zoom: 2,
@@ -72,11 +72,11 @@ $.getJSON(my_url, function(json) {
                   mapTypeId: google.maps.MapTypeId.TERRAIN
               }
 
-              /*$http.get('../json/branchDetails.json').success(function(response) {
-                alert("response:"+$scope.response);
-                    $scope.branches =  response.branches; 
+              $scope.branches = "";
+              $http.get('../json/branchDetails.json').success(function(response) {               
+                    $scope.branches =  JSON.stringify(response); 
                      alert("branch:"+$scope.branches);
-              });*/
+              });
 
               $scope.map = new google.maps.Map(document.getElementById('map'), mapOptions);
 
@@ -102,9 +102,9 @@ $.getJSON(my_url, function(json) {
                   
               }  
               
-           //  console.log("branches2: "+branches);
-              for (i = 0; i < branches.length; i++){
-                  createMarker(branches[i]);
+             console.log("branches2: "+$scope.branches);
+              for (i = 0; i < $scope.branches.length; i++){
+                  createMarker($scope.branches[i]);
               }
    /*           angular.forEach($scope.branches, function(branch) {
   createMarker(branch);
@@ -116,4 +116,4 @@ $.getJSON(my_url, function(json) {
                   google.maps.event.trigger(selectedMarker, 'click');
               }
 
-          });
+          }]);

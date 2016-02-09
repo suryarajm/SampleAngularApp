@@ -33,7 +33,7 @@
 
           //Angular App Module and Controller
           /*var branches = ""; */
-
+/*
          var branches = [
   {"city":"Vazhuthacaud - Trivandrum","address":"4th Floor, Artech Magnet, Vazhuthacaud,Trivandrum - 695014",
    "employeeCount":"160","lat":"8.5031","long":"76.96"},
@@ -55,15 +55,15 @@
    "employeeCount":"150","lat":"-33.8169308","long":"151.0009176"},
   {"city":"Temasek Boulevard","address":"8 Temasek Boulevard,#42-01, Suntec Tower Three, Singapore 038988",
    "employeeCount":"100","lat":"1.2952","long":"103.8595"}
-  ];
- /* var branches = "";
+  ];*/
+  var branches = "";
   var my_url = "../json/branchDetails.json";
 $.getJSON(my_url, function(json) {
   branches = branches+JSON.stringify(json);
   console.log("branches: "+branches);
   // here you have the value
-});*/
-   // console.log("branches3: "+branches);    
+});
+    console.log("branches3: "+branches);    
           googleMapApp.controller('MapCtrl', function ($scope) {
 
               var mapOptions = {
@@ -102,7 +102,7 @@ $.getJSON(my_url, function(json) {
                   
               }  
               
-           //  console.log("branches2: "+branches);
+             console.log("branches2: "+branches);
               for (i = 0; i < branches.length; i++){
                   createMarker(branches[i]);
               }
