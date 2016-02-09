@@ -3,13 +3,17 @@ empDynamicApp.config(['$httpProvider','$routeProvider',function($httpProvider,$r
        $httpProvider.interceptors.push('timestampMarker');
        
        $routeProvider.when('/Dashboard',{
-            templateUrl: 'views/dashboard.html'
+            templateUrl: 'views/dashboard.html',
+            controller: "empEditController"
         }).when('/EmployeeManagement',{
-          templateUrl: 'views/employeeEdit.html'
+          templateUrl: 'views/employeeEdit.html',
+            controller: "empEditController"
         }).when('/googleMap',{
-          templateUrl: 'views/googleMap.html'
+          templateUrl: 'views/map.html',
+          controller: "MapCtrl"
         }).when('/',{
-            templateUrl: 'views/home.html'
+            templateUrl: 'views/home.html',
+            controller: "empEditController"
         }).otherwise({
              redirectTo: '/'
          });

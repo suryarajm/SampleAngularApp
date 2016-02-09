@@ -64,11 +64,11 @@ $.getJSON(my_url, function(json) {
   // here you have the value
 });*/
    // console.log("branches3: "+branches);    
-          googleMapApp.controller('MapCtrl', function ($scope) {
+          empDynamicApp.controller('MapCtrl', function ($scope) {
 
               var mapOptions = {
-                  zoom: 2,
-                  center: new google.maps.LatLng(8.5031,76.96),
+                  zoom: 3,
+                  center: new google.maps.LatLng(1.2952,103.8595),
                   mapTypeId: google.maps.MapTypeId.TERRAIN
               }
 
@@ -115,5 +115,39 @@ $.getJSON(my_url, function(json) {
                   e.preventDefault();
                   google.maps.event.trigger(selectedMarker, 'click');
               }
+
+
+
+
+              //Map Table
+              $scope.myCallback = function(nRow, aData, iDisplayIndex, iDisplayIndexFull) {            
+            $('td:eq(0)', nRow).bind('click', function() {
+                $scope.$apply(function() {
+                    $scope.someClickHandler(aData);
+                });
+            });
+            return nRow;
+        };
+
+        $scope.someClickHandler = function(info) {
+            $scope.message = 'clicked: '+ info.category;
+        };
+    
+        $scope.columnDefs = [ 
+            { "mDataProp": "category", "aTargets":[0]},
+            { "mDataProp": "name", "aTargets":[1] },
+            { "mDataProp": "price", "aTargets":[2] }
+        ]; 
+        
+        $scope.overrideOptions = {
+            "bStateSave": true,
+            "iCookieDuration": 2419200, /* 1 month */
+            "bJQueryUI": true,
+            "bPaginate": true,
+            "bLengthChange": true,
+            "bFilter": true,
+            "bInfo": true,
+            "bDestroy": true
+        };
 
           });

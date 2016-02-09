@@ -166,7 +166,6 @@ aside{
     height: 100%;
     min-height: 710px;
     margin-bottom: 50px;
-    margin-top: 25px;
 }
 a{
     cursor: pointer;
@@ -198,7 +197,7 @@ a{
 /**Google Map**/
 #map{
     height:500px; 
-    width:500px; 
+    width:100%; 
     box-shadow: 3px 3px 10px gray;
     /*margin-top: 15%;*/
     margin: 12% auto 1% auto;
@@ -232,3 +231,25 @@ a{
 #names { 
      cursor: pointer; 
        }
+.mapContainer{
+    width: 99%;
+    height: auto;
+    padding: 20px;
+    background-color: white; 
+    margin: auto;   
+}
+.mapHead,.mapBody,#mapTableContainer{
+    width: 100%;
+    text-align: left;
+    height: auto;
+    float: left; 
+}
+.mapHead{
+    margin-top: 100px;
+}
+.mapBody{
+    margin-top: -100px;
+}
+#mapTableContainer{
+
+}
